@@ -2097,8 +2097,7 @@ The comparison algorithm performed depends on the value of the codepoint being c
 
 [^issue] https://github.com/ietf-rats-wg/draft-ietf-rats-corim/issues/203
 
-If the `measurement-values-map` value has an associated CBOR tag.
-The comparison algorithm should comprehend the structure identified by the CBOR tag.
+If the `measurement-values-map` value has an associated CBOR tag, the comparison algorithm should comprehend the structure identified by the CBOR tag.
 
 If the stateful environment `measurement-values-map` value is tagged with a CBOR tag {{-cbor}} then the Verifier MUST use the comparison algorithm associated with that tag.
 
@@ -2108,8 +2107,10 @@ If the Verifier does not recognize the stateful environment CBOR tag value then 
 
 If the stateful environment is not tagged and the `measurement-values-map` key is a value with handling described in the sub-sections below, then the algorithm appropriate to that key is used to match the entries.
 
-If the stateful environment is not tagged, and the `measurement-values-map` key is not a value described below, then the entries are compared using binary comparison of their CBOR encoded values.
+If the stateful environment is not tagged, and the `measurement-values-map` key does not have a specified comparison algorithm below or by the profile, then the entries are compared using binary comparison of their CBOR encoded values.
 If the values are not binary identical then the stateful environment does not match.
+
+Profile writers SHOULD use CBOR tags for widely applicable comparison methods to ease Verifier implementation compliance across profiles.
 
 ##### Comparison for svn entries
 
