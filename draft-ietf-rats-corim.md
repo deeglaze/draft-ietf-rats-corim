@@ -355,6 +355,8 @@ Profiling is the mechanism that allows the base CoRIM CDDL definition to be cust
 A profile defines which of the optional parts of a CoRIM are required, which are prohibited and which extension points are exercised and how.
 A profile MUST NOT alter the syntax or semantics of CoRIM types defined in this document.
 
+Note: The above constraint means that a profile cannot define alternate default values for syntax defined in this document.
+
 A profile MAY constrain the values of a given CoRIM type to a subset of the values.
 A profile MAY extend the set of a given CoRIM type using the defined extension points (see {{sec-extensibility}}).
 Exercised extension points should preserve the intent of the original semantics.
@@ -1058,11 +1060,15 @@ A Reference Values triple relates reference measurements to a Target
 Environment. For Reference Value Claims, the subject identifies a Target
 Environment, the object contains measurements, and the predicate asserts that
 these are the expected (i.e., reference) measurements for the Target
-Environment.
+Environment, as signed by any of the listed authorities.
+If the authorities field is missing, then the authorities in the ACS are irrelevant for matching.
 
 ~~~ cddl
 {::include cddl/reference-triple-record.cddl}
 ~~~
+
+If reference values ought to match only the attestation key and not some other entity's endorsed values, then the authorities should contain some key in the attestation key certificate's path to the root, if not the root itself.
+The CoRIM author SHOULD NOT depend on Verifier behavior that treats the default authority as an attestation key.
 
 #### Endorsed Values Triple {#sec-comid-triple-endval}
 
