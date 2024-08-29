@@ -1,4 +1,5 @@
 COMID_FRAGS := concise-mid-tag.cddl
+COMID_FRAGS += authorities.cddl
 COMID_FRAGS += accepted-claims-set.cddl
 COMID_FRAGS += attest-key-triple-record.cddl
 COMID_FRAGS += class-id-type-choice.cddl
@@ -15,6 +16,7 @@ COMID_FRAGS += domain-dependency-triple-record.cddl
 COMID_FRAGS += domain-membership-triple-record.cddl
 COMID_FRAGS += conditional-endorsement-triple-record.cddl
 COMID_FRAGS += domain-type-choice.cddl
+COMID_FRAGS += endorsed-claims-record.cddl
 COMID_FRAGS += endorsed-triple-record.cddl
 COMID_FRAGS += entity-map.cddl
 COMID_FRAGS += entity-name-type-choice.cddl

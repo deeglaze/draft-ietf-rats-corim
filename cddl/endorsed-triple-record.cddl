@@ -1,4 +1,5 @@
 endorsed-triple-record = [
   environment-map
   measurement-map
+  ? authorities
 ]
